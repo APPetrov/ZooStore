@@ -1,0 +1,28 @@
+package com.example.bigprojecttinqin.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Set;
+import java.util.UUID;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "Vendor")
+public class Vendor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    private String name;
+
+    private String phone;
+
+    @OneToMany
+    private Set<Item> items;
+}
